@@ -291,6 +291,14 @@
                             <textarea id="message" name="message" required rows="5" placeholder="Your message here..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-full" onclick="sendMail()" >Send Message</button>
+                        <script>
+                            function sendMail{
+            let parms = {
+                name : document.getElemntById("name").value, email : document.getElemntById("name").value, message : document.getElemntById("name").value,
+            }
+            emailjs.send("service_t24rax8","template_zt2ptrb",parms).then(alert("Email sent"))
+}
+                        </script>
                     </form>
                 </div>
             </div>
