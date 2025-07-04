@@ -123,6 +123,14 @@ function initContactForm() {
                 showToast('Error', 'Please fill in all fields.');
                 return;
             }
+
+function sendMail{
+            let parms{
+                name : document.getElemntById("name").value, email : document.getElemntById("name").value, message : document.getElemntById("name").value,
+            }
+            emailjs.send("service_t24rax8","template_zt2ptrb",parms)
+}
+            
             
             // Show loading state
             const submitButton = form.querySelector('button[type="submit"]');
