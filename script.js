@@ -125,7 +125,7 @@ function initContactForm() {
             }
 
 function sendMail{
-            let parms{
+            let parms = {
                 name : document.getElemntById("name").value, email : document.getElemntById("name").value, message : document.getElemntById("name").value,
             }
             emailjs.send("service_t24rax8","template_zt2ptrb",parms)
