@@ -138,8 +138,8 @@ function initContactForm() {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        service_id: 'service_default',
-                        template_id: 'template_default',
+                        service_id: 'service_t24rax8',
+                        template_id: 'template_zt2ptrb',
                         user_id: 'H29aues5IzHpsK6Hs', // Replace with your EmailJS public key
                         template_params: {
                             from_name: name,
