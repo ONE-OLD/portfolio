@@ -17,8 +17,8 @@ function initBackgroundMusic() {
     const audio = document.getElementById('backgroundMusic');
     
     if (audio) {
-        // Set volume to 30%
-        audio.volume = 0.3;
+        // Set volume to 50%
+        audio.volume = 0.5;
         
         // Try to play audio
         const playAudio = async () => {
