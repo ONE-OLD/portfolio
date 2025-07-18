@@ -629,6 +629,7 @@ body::before {
     }
 }
 /* Chat Widget Styles */
+/* Chat Widget Styles */
 .chat-widget {
     position: fixed;
     bottom: 20px;
@@ -662,7 +663,7 @@ body::before {
     bottom: 80px;
     right: 0;
     width: 320px;
-    background: black;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -795,7 +796,6 @@ body::before {
         padding: 15px;
     }
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
