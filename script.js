@@ -474,6 +474,109 @@ Keyboard Shortcuts:
 window.addEventListener('error', function(e) {
     console.error('Portfolio Error:', e.error);
 });
+// Chat Widget Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const chatButton = document.getElementById('chatButton');
+    const chatBox = document.getElementById('chatBox');
+    const closeChatButton = document.getElementById('closeChatButton');
+    const chatForm = document.getElementById('chatForm');
+    const chatSubmitBtn = chatForm.querySelector('.chat-submit-btn');
+
+    // Toggle chat box
+    chatButton.addEventListener('click', function() {
+        chatBox.classList.add('active');
+    });
+
+    closeChatButton.addEventListener('click', function() {
+        chatBox.classList.remove('active');
+    });
+
+    // Close chat when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.chat-widget')) {
+            chatBox.classList.remove('active');
+        }
+    });
+
+    // Handle chat form submission
+    chatForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('chatName').value;
+        const email = document.getElementById('chatEmail').value;
+        const message = document.getElementById('chatMessage').value;
+
+        // Show loading state
+        chatSubmitBtn.classList.add('loading');
+        chatSubmitBtn.disabled = true;
+
+        try {
+            // EmailJS configuration (replace with your actual IDs)
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                message: message,
+                to_email: 'kwizerarsn@gmail.com'
+            };
+
+            // Send email using EmailJS
+            await emailjs.send(
+                'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+                'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+                templateParams,
+                'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+            );
+
+            // Success feedback
+            showNotification('Message sent successfully!', 'success');
+            chatForm.reset();
+            setTimeout(() => {
+                chatBox.classList.remove('active');
+            }, 1500);
+
+        } catch (error) {
+            console.error('Error sending message:', error);
+            showNotification('Failed to send message. Please try again.', 'error');
+        } finally {
+            // Reset button state
+            chatSubmitBtn.classList.remove('loading');
+            chatSubmitBtn.disabled = false;
+        }
+    });
+
+    // Notification function
+    function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            ${type === 'success' ? 'background: #10b981;' : 'background: #ef4444;'}
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 3000);
+    }
+});
 
 // Service Worker Registration (Optional for PWA features)
 if ('serviceWorker' in navigator) {
