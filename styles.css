@@ -488,7 +488,6 @@ body::before {
     border-radius: var(--radius);
     padding: 2rem;
     box-shadow: var(--shadow-card);
-}
 
 .contact-form {
     display: flex;
@@ -663,7 +662,7 @@ body::before {
     bottom: 80px;
     right: 0;
     width: 320px;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--gradient-secondary);
     backdrop-filter: blur(20px);
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
