@@ -662,7 +662,7 @@ body::before {
     bottom: 80px;
     right: 0;
     width: 320px;
-    background: var(--gradient-secondary);
+    background: black;
     backdrop-filter: blur(20px);
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
