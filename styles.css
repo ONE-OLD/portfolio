@@ -675,6 +675,7 @@ body::before {
     }
     
     .hero-section {
+        margin-top: 13%;
         padding: 3rem 1rem;
     }
     

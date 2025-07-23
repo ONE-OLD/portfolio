@@ -17,8 +17,8 @@ function initBackgroundMusic() {
     const audio = document.getElementById('backgroundMusic');
     
     if (audio) {
-        // Set volume to 30%
-        audio.volume = 0.3;
+        // Set volume to 50%
+        audio.volume = 0.5;
         
         // Try to play audio
         const playAudio = async () => {
@@ -124,6 +124,7 @@ function initContactForm() {
                 return;
             }
             
+            
             // Show loading state
             const submitButton = form.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
@@ -138,8 +139,8 @@ function initContactForm() {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        service_id: 'service_default',
-                        template_id: 'template_default',
+                        service_id: 'service_t24rax8',
+                        template_id: 'template_zt2ptrb',
                         user_id: 'H29aues5IzHpsK6Hs', // Replace with your EmailJS public key
                         template_params: {
                             from_name: name,
